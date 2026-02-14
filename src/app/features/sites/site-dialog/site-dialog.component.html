@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>
+  {{ data ? 'Edit Site' : 'Add Site' }}
+</h2>
+
+<form [formGroup]="siteForm" mat-dialog-content>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Site Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Location</mat-label>
+    <input matInput formControlName="location" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Area</mat-label>
+    <input matInput formControlName="area" placeholder="e.g. 50 Acres" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Soil Type</mat-label>
+    <mat-select formControlName="soilType">
+      <mat-option value="Clay">Clay</mat-option>
+      <mat-option value="Sandy">Sandy</mat-option>
+      <mat-option value="Loamy">Loamy</mat-option>
+      <mat-option value="Silty">Silty</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="Active">Active</mat-option>
+      <mat-option value="Inactive">Inactive</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
+
+<div mat-dialog-actions class="actions">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">
+    Save
+  </button>
+</div>

@@ -1,0 +1,80 @@
+<mat-sidenav-container class="container">
+
+  <!-- Sidebar -->
+  <mat-sidenav
+    mode="side"
+    [opened]="isSidebarOpen"
+    class="sidenav"
+  >
+    <mat-toolbar color="primary" class="logo">
+      TerraPed
+    </mat-toolbar>
+
+    <mat-nav-list>
+
+      <a mat-list-item
+         routerLink="/dashboard"
+         routerLinkActive="active-link">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+
+      <a mat-list-item
+         routerLink="/users"
+         routerLinkActive="active-link">
+        <mat-icon>people</mat-icon>
+        <span>Users</span>
+      </a>
+
+      <a mat-list-item
+         routerLink="/sites"
+         routerLinkActive="active-link">
+        <mat-icon>location_on</mat-icon>
+        <span>Sites</span>
+      </a>
+
+      <a mat-list-item
+         routerLink="/test-type"
+         routerLinkActive="active-link">
+        <mat-icon>category</mat-icon>
+        <span>Test Types</span>
+      </a>
+
+      <a mat-list-item
+         routerLink="/tests"
+         routerLinkActive="active-link">
+        <mat-icon>science</mat-icon>
+        <span>Tests</span>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+
+    <!-- Top Toolbar -->
+    <mat-toolbar color="primary" class="top-toolbar">
+
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="title">FDD Reporting</span>
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <!-- Routed Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

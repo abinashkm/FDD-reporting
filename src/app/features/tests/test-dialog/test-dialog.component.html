@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>
+  {{ data?.id ? 'Edit Test' : 'Add Test' }}
+</h2>
+
+<form [formGroup]="testForm" mat-dialog-content>
+
+  <!-- Site -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Site</mat-label>
+    <mat-select formControlName="site">
+      <mat-option *ngFor="let s of data.sites" [value]="s.name">
+        {{ s.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Test Type -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Test Type</mat-label>
+    <mat-select formControlName="testType">
+      <mat-option *ngFor="let t of data.testTypes" [value]="t.name">
+        {{ t.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Result -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Result Value</mat-label>
+    <input matInput type="number" step="0.01"
+           formControlName="resultValue" />
+    <mat-hint *ngIf="unit">Unit: {{ unit }}</mat-hint>
+  </mat-form-field>
+
+  <!-- Date -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Test Date</mat-label>
+    <input matInput [matDatepicker]="picker"
+           formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Status -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="Completed">Completed</mat-option>
+      <mat-option value="Pending">Pending</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
+
+<div mat-dialog-actions class="actions">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">
+    Save
+  </button>
+</div>
