@@ -1,6 +1,5 @@
 <mat-sidenav-container class="container">
 
-  <!-- Sidebar -->
   <mat-sidenav
     mode="side"
     [opened]="isSidebarOpen"
@@ -50,10 +49,8 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <!-- Main Content -->
   <mat-sidenav-content>
 
-    <!-- Top Toolbar -->
     <mat-toolbar color="primary" class="top-toolbar">
 
       <button mat-icon-button (click)="toggleSidebar()">
@@ -70,7 +67,6 @@
 
     </mat-toolbar>
 
-    <!-- Routed Content -->
     <div class="content">
       <router-outlet></router-outlet>
     </div>

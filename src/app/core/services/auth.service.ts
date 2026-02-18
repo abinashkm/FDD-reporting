@@ -9,7 +9,6 @@ export class AuthService {
 
   private storageKey = 'currentUser';
 
-  // DEMO LOGIN
   autoLoginDemoUser() {
     const existingUser = localStorage.getItem(this.storageKey);
 

@@ -1,15 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    // As the routes are read in order, we need to put the more specific ones first. Otherwise, the router will pick the first one that matches and not continue looking for the more specific ones.
-    
-    // Redirect the empty path to 'login'. This means that when the user navigates to the root of the application, they will be redirected to the login page.
     {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full'
     },
-    // Load the login component when the user navigates to 'login'. This is a lazy-loaded route, which means that the component will only be loaded when the user navigates to this route. This can help improve the initial load time of the application.
     {
         path: 'login',
         loadComponent: () => import('../app/features/login/login.component').then(m => m.LoginComponent)
